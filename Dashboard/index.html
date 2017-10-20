@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <title>Real Rock Live</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="">
+     <link rel="shortcut icon" href="images/faveiconRR.png" type="image/x-icon">
+      <script src="https://polygit.org/components/webcomponentsjs/webcomponents-loader.js"></script>
+        <link rel="import" href="dom-element.html">
+
+ <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel="stylesheet" href="css/w3.css">
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+   <link rel="stylesheet" href="css/tema/w3-theme-blue-grey.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="dist/jquery.thumbs.css">
+   <link rel="stylesheet" type="text/css" href="css/heart.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/rating.css"/> -->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<!-- <script src="js/rating.js"></script> -->
+<script src="js/ratingmultiple.js"></script>
+<!--
+    <script>
+        $(document).ready(function () {
+            $("#ratingBox").rating({
+                complete: function (index) {
+                    $("[name=rate], [name=rank]").val(index);
+                },
+                load: function (index) {
+                    $("[name=rate], [name=rank]").val(index);
+                }
+            });
+        });
+    </script>
+-->
+     <script>
+    $(document).ready(function()
+    {
+
+    $('body').on("click",'.heart',function()
+    {
+
+        var A=$(this).attr("id");
+        var B=A.split("like");
+        var messageID=B[1];
+        var C=parseInt($("#likeCount"+messageID).html());
+        $(this).css("background-position","")
+        var D=$(this).attr("rel");
+
+        if(D === 'like')
+        {
+        $("#likeCount"+messageID).html(C+1);
+        $(this).addClass("heartAnimation").attr("rel","unlike");
+
+        }
+        else
+        {
+        $("#likeCount"+messageID).html(C-1);
+        $(this).removeClass("heartAnimation").attr("rel","like");
+        $(this).css("background-position","left");
+        }
+
+
+    });
+
+
+	});
+	</script>
+
+
+</head>
+<body  class="w3-theme-l5">
+<!-- Navbar -->
+<!--
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-opennav w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Logo</a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+  <div class="w3-hide-small w3-dropdown-hover">
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>
+    <div class="w3-dropdown-content w3-white w3-card-4">
+      <a href="#">One new friend request</a>
+      <a href="#">John Doe posted on your wall</a>
+      <a href="#">Jane likes your post</a>
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"><img src="w3images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a>
+ </div>
+</div>
+
+<!-- Navbar on small screens -->
+<!--
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+-->
+
+
+
+<nav class="navbar navbar-inverse w3-theme-d5">
+  <div class="container-fluid ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4">
+      <!--- <i class="w3-margin-right">Consolle</i> -->
+      <img src="images/logomin45.png" alt="Real Rock Radio"
+      title="Real Rock Radio" > </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li>
+        <a href="#"><span class="glyphicon glyphicon-bell"></span>
+        <span class="w3-badge w3-right w3-small w3-green">3</span></a>
+       </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+        <img src="images/w3/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Container -->
+                                         <!-- <div class="alert alert-success hide pull-left" style="postition:absolute;">
+                                            <button type="button" class="close" data-dismiss="alert">x</button>
+                                            You gave a rating of <span id="count">0</span> star(s)
+                                        </div> -->
+<div class="w3-container w3-content" style="max-width:1400px;" id ="TopPage">
+            <div class="w3-card-2 w3-round">
+
+            <!-- WELL -->
+                <div class="well w3-white">
+                                      <dom-element></dom-element>
+
+                     <div class="row">
+                        <!-- begin col-3 -->
+                        <div class="col-md-3 col-sm-6">
+
+                            <div class="widget widget-stats bg-black">
+                                <div class="onair-block">
+                                    <img src="images/logoprogramma.jpg" class="img-thumbnail logoslot" alt="Cinque Terre" width="104" >
+                                </div>
+                                <!-- <div class="stats-icon stats-icon-lg"><i class="fa fa-gavel fa-fw"></i></div> -->
+                                <div  class="stats-icon stats-icon-lg ">
+                                <img class="media-object img-onair" src="images/on-air.png">
+                                <img class="media-object img-onair" src="images/equalizer3.gif">
+                                </div>
+                                    <div class="stats-icon stats-icon-lg stats-icon-now-onair">
+                                        <img class="media-object img-circle profile-img img-profile-slot" style="margin-top:0px;margin-right: 1px;"
+                                        src="images/gaetano.jpg">
+                                    </div>
+                                <div class="stats-title">Indie Vibrations</div>
+                                <div class="stats-number">Gaetano De Gregorio</div>
+                                  <div class="popolarita">
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                                <div style="display: -webkit-inline-box;font-size: x-small;"  title="Segui questo programma">
+                                                 <!-- class="feed" id="feed1" -->
+                                                    <div class="heart " id="like1" rel="like"></div>
+                                                    <div class="likeCount" id="likeCount1">14</div>
+                                                </div>
+                                  </div>
+                                <div class="stats-progress progress" style="margin-top: -10px;">
+                                    <div class="progress-bar" style="width: 70.1%;"></div>
+                                </div>
+                                <div class="stats-desc">descrizione brano</div>
+                                        <div class="blocco-rating">
+                                          <div class="js-rating-simple" data-like="4" data-dislike="2"></div>
+                                          <!-- <div id="stars" class="starrr"></div> -->
+
+                                        </div>
+                                          <div class="valuta">
+                                          <button class="btn btn-success pull-center " data-toggle="modal" data-target="#myModal">Vota Programma</button>
+                                          </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal content-->
+                           <div class="modal fade" id="myModal" role="dialog">
+        <div class="alert alert-success pull-right hide">
+  		  <button type="button" class="close" data-dismiss="alert">×</button>
+    		You gave a rating of <span id="count">0</span> star(s)
+        </div>
+                            <div class="modal-dialog">
+
+
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Valutazione</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Valuta il live di Gaetano De Gregorio</p>
+                                  <form>
+                                    <ul class="list-group">
+                                       <li class="list-group-item">
+                                            <div><span>Gradimento Musica</span></div>
+                                            <!--
+                                            <div id="ratingBox" class="additional" ></div>
+                                            <input name="rate" type="hidden"/><input type="hidden" name="rank" class="form-control">
+                                            -->
+
+                                          <div class="row lead">
+                                            <div id="stars1" class="starrr"></div>
+                                             <input type="hidden" name="fstar1">
+                                          </div>
+                                       </li>
+                                       <li class="list-group-item">
+                                            <div><span>Gradimento Rubrica</span></div>
+                                          <div class="row lead">
+                                            <div id="stars2" class="starrr"></div>
+                                            <input type="hidden" name="fstar2">
+                                          </div>
+                                       </li>
+                                       <li class="list-group-item">
+                                            <div><span>Qualit&agrave; Audio Microfono</span></div>
+                                          <div class="row lead">
+                                            <div id="stars3" class="starrr"></div>
+                                            <input type="hidden" name="fstar3">
+                                          </div>
+                                       </li>
+                                       <li class="list-group-item">
+                                            <div><span>Gradimento Novit&agrave; Musicali</span></div>
+                                          <div class="row lead">
+                                            <div id="stars4" class="starrr"></div>
+                                            <input type="hidden" name="fstar4">
+                                          </div>
+                                       </li>
+                                       <li class="list-group-item">
+                                            <div><span>Simpatia Speacker</span></div>
+                                          <div class="row lead">
+                                            <div id="stars5" class="starrr"></div>
+                                            <input type="hidden" name="fstar5">
+                                          </div>
+                                       </li>
+                                    </ul>
+                                </div>
+                                </form>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                        <!-- Modal content-->
+                        <!-- end col-3 -->
+                        <!-- begin col-3 -->
+                        <!--
+                        icons da usare:
+                        glyphicon glyphicon-bookmark 'prenota slot'
+                        glyphicon glyphicon-play-circle 	glyphicon glyphicon-expand glyphicon glyphicon-log-in glyphicon glyphicon-flash 'slot libero vai on air'
+                        glyphicon glyphicon-ban-circle          'slot prenotato'
+                        glyphicon glyphicon-exclamation-sign    'exclamation'
+                        glyphicon glyphicon-fire     'fire'
+                        glyphicon glyphicon-magnet   'magnete'
+                        glyphicon glyphicon-comment  'comment'
+                        glyphicon glyphicon-tasks 'task'
+                        glyphicon glyphicon-dashboard 'vai alla regia live'
+                        glyphicon glyphicon-send 'manda messaggio'
+                        glyphicon glyphicon-stats 'stats barre'
+                        glyphicon glyphicon-cloud-upload 'vai on line cloud'
+                        glyphicon glyphicon-cd 'disco'
+                        glyphicon glyphicon-equalizer
+                        glyphicon glyphicon-hourglass 'clessidra'
+                        glyphicon glyphicon-scissors
+                        glyphicon glyphicon-sunglasses 'anonimo'
+                        glyphicon glyphicon-headphones
+                        glyphicon glyphicon-volume-off
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <i class="fa fa-comment" aria-hidden="true"></i>
+                        <i class="fa fa-dashboard" aria-hidden="true"></i>
+                        <i class="fa fa-podcast" aria-hidden="true"></i>
+                        <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                        <i class="fa fa-users" aria-hidden="true"></i> 'tanti user'
+                        fa fa-tags fa-fw
+        fare SLOT AUTODJ e SLOT PARTI SUBITO LIVE
+                        -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="widget widget-stats bg-orange">
+                                <div class="stats-icon stats-icon-lg"><i class="glyphicon glyphicon-bookmark"></i></div>
+                                <div class="stats-title">Nessun programma</div>
+                                <div class="stats-number">SLOT LIBERO!</div>
+                                <div class="stats-progress progress">
+                                    <div class="progress-bar" style="width: 0.5%;"></div>
+                                </div>
+                                <div class="stats-desc">inizio tra 20m.
+                                <button class="btn btn-danger" style="float: right;">Prenota slot</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- end col-3 -->
+                        <!-- begin col-3 slot occupata -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="widget widget-stats bg-black">
+                                <!-- <div class="stats-icon stats-icon-lg"><i class="fa fa-gavel fa-fw"></i></div> -->
+                                    <div class="stats-icon stats-icon-lg ">
+                                        <img class="media-object img-circle profile-img img-profile-slot" src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png">
+                                    </div>
+                                <div class="stats-title">Mosche Danzanti</div>
+                                <div class="stats-number">Tony Manero</div>
+                                <div class="popolarita">
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                  </div>
+                                <div class="stats-progress progress" style="margin-top: 0.19em;">
+                                    <div class="progress-bar" style="width: 0.1%;"></div>
+                                </div>
+                                <div class="sfondo-slot" style="background: url(images/logoprogramma.jpg);background-position: 60%;background-size: cover;">
+                                </div>
+                                <div class="stats-desc scritta-sfondoslot"  >Inizio Ore 16:00</div>
+                            </div>
+                        </div>
+                        <!-- end col-3 -->
+                        <!-- begin col-3 -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="widget widget-stats bg-black">
+                                <div class="stats-icon stats-icon-lg"><i class="fa fa-comments fa-fw"></i></div>
+                                <div class="stats-title">NEW COMMENTS</div>
+                                <div class="stats-number">3,988</div>
+                                <div class="stats-progress progress">
+                                    <div class="progress-bar" style="width: 0.2%;"></div>
+                                </div>
+                                <div class="stats-desc">Better than last week (54.9%)</div>
+                            </div>
+                        </div>
+                        <!-- end col-3 -->
+            <!-- valutazione utente -->
+                    <div class="justify-content-between">
+                            <div style="text-align:center;"><h4>Come ti valutano i tuoi ascoltatori:</h4></div>
+                        <div class="col-md-9 col-sm-9"><!--  <div class=""> -->
+                            <!-- SEZIONE RATING PROFILO INSIEME-->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                  <div class="row" >
+                                                   <div class="col-xs-3 col-md-3 text-right rating-margin">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="rating-size">5</span>
+                                                   </div>
+                                                   <div class="col-xs-6 col-md-6 rating-margin">
+                                                            <div class="progress progress-striped progress-rating">
+                                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                                    <span class="sr-only">80%</span>
+                                                                </div>
+                                                            </div>
+                                                   </div>
+                                                   <div class="col-xs-4 col-md-4 text-left rating-margin">
+                                                    <span style ="font-size: x-small;">Musica</span>
+                                                   </div>
+                                                  </div>
+
+                                                  <div class="row">
+                                                   <div class="col-xs-3 col-md-3 text-right rating-margin">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="rating-size">5</span>
+                                                   </div>
+                                                   <div class="col-xs-6 col-md-6 rating-margin">
+                                                        <div class="progress progress-rating">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                                <span class="sr-only">60%</span>
+                                                            </div>
+                                                        </div>
+                                                   </div>
+                                                   <div class="col-xs-4 col-md-4 text-left rating-margin">
+                                                    <span style ="font-size: x-small;">Rubrica</span>
+                                                   </div>
+                                                  </div>
+
+                                                  <div class="row">
+                                                   <div class="col-xs-3 col-md-3 text-right rating-margin">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="rating-size">5</span>
+                                                   </div>
+                                                   <div class="col-xs-6 col-md-6 rating-margin">
+                                                                                <div class="progress progress-rating">
+                                                                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                                                        <span class="sr-only">40%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                   </div>
+                                                   <div class="col-xs-4 col-md-4 text-left rating-margin">
+                                                    <span style ="font-size: x-small;">Followers</span>
+                                                   </div>
+                                                  </div>
+
+                                                  <div class="row">
+                                                   <div class="col-xs-3 col-md-3 text-right rating-margin">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="rating-size">5</span>
+                                                   </div>
+                                                   <div class="col-xs-6 col-md-6 rating-margin">
+                                                                                <div class="progress progress-rating">
+                                                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                                                                        <span class="sr-only">20%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                   </div>
+                                                   <div class="col-xs-4 col-md-4 text-left rating-margin">
+                                                    <span style ="font-size: x-small;">Social Like</span>
+                                                   </div>
+                                                  </div>
+
+                                                  <div class="row">
+                                                   <div class="col-xs-3 col-md-3 text-right rating-margin">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="rating-size">5</span>
+                                                   </div>
+                                                   <div class="col-xs-6 col-md-6 rating-margin">
+                                                                                <div class="progress progress-rating">
+                                                                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+                                                                                        aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+                                                                                        <span class="sr-only">15%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                   </div>
+                                                   <div class="col-xs-4 col-md-4 text-left rating-margin">
+                                                    <span style ="font-size: x-small;">Qualit&agrave;</span>
+                                                   </div>
+                                                  </div>
+
+                                            </div>
+                                                          <!-- SECONDA COLONNA -->
+                                                          <div class="col-sm-4">
+                                                          seconda colonna
+                                                          </div>
+                                                          <!-- TERZA COLONNA -->
+                                                          <div class="col-sm-4">
+                                                          terza colonna
+                                                          </div>
+                                    </div>
+                                 <!-- END SEZIONE RATING PROFILO INSIEME-->
+                        </div>
+                    </div>
+
+<!-- end valutazione utente -->
+                    </div>
+                   </div>
+
+            <!-- END WELL -->
+            </div>
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+          <!-- Profile -->
+              <div class="w3-card-2 w3-round w3-white">
+                <div class="w3-container">
+                 <h4 class="w3-center">My Profile</h4>
+                 <p class="w3-center"><img src="images/w3/avatar1.png" class="w3-circle img-responsive  img-bordered-primary"   style="display: initial;" alt="Avatar"></p>
+                 <hr>
+                 <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Designer, UI</p>
+                 <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
+                 <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
+                                        <div class="text-center" style="padding-bottom: 15px;">
+                                            <h1 class="rating-num">
+                                                4.0</h1>
+                                            <div class="rating">
+                                                <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                                                </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                                                </span><span class="glyphicon glyphicon-star-empty"></span>
+                                            </div>
+                                            <div>
+                                                <span class="glyphicon glyphicon-user"></span>1,050,008 total
+                                            </div>
+                                        </div>
+                </div>
+
+              </div>
+              <br>
+    <!-- Alert Box -->
+      <div class="w3-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+        <span onclick="this.parentElement.style.display='none'" class="w3-hover-text-grey w3-closebtn allinearight">
+          <i class="fa fa-remove"></i>
+        </span>
+        <p><strong>Hey!</strong></p>
+        <p>People are looking at your profile. Find out who.</p>
+      </div>
+     </div>
+    <!-- End Left Column -->
+<!-- Middle Column -->
+    <div class="w3-col m7">
+    <!-- STATO REGIA LIVE -->
+         <div class="w3-row-padding">
+             <div class="panel panel-body  w3-card-2 w3-round w3-white">
+
+             <div class="row">
+                    <div class="progress" style="margin-left: 15px;margin-right: 15px;">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete (warning)</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-xs-12">
+
+                           <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="panel panel-warning w3-card-2"  >
+                              <div class="panel-heading">
+                                <h3 class="panel-title">Panel title</h3>
+                              </div>
+                              <div class="panel-body">
+                                <div>Panel content</div>
+                                <div><button class="btn btn-success pull-center ">Prenota</button></div>
+                             </div>
+
+                            </div>
+                           </div>
+                          <div class="col-xs-12 col-sm-6 col-md-3">
+                          <div class="panel panel-danger w3-card-2">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">Panel title</h3>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                                                              <div>Panel content</div>
+                                <div><button class="btn btn-facebook pull-center ">Prenota</button></div>
+
+                            </div>
+                          </div>
+                          </div>
+                         <!-- <div class="col-xs-12 col-sm-6 col-md-3">
+                          <div class="panel panel-success w3-card-2">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">Panel title</h3>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+                          </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-6 col-md-3">
+                          <div class="panel panel-info w3-card-2">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">Panel title</h3>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+                          </div>
+                          </div>
+                          -->
+                            <!-- <div class="col-sm-4">
+                                <div class="panel panel-success">
+                                  <div class="panel-heading">
+                                    <h3 class="panel-title">Panel title</h3>
+                                  </div>
+                                  <div class="panel-body">
+                                    Panel content
+                                  </div>
+                                </div>
+                                <div class="panel panel-info">
+                                  <div class="panel-heading">
+                                    <h3 class="panel-title">Panel title</h3>
+                                  </div>
+                                  <div class="panel-body">
+                                    Panel content
+                                  </div>
+                                </div>
+                              </div>    -->
+
+                    </div>
+                </div>
+             </div>
+
+         </div>
+    <!-- END STATO REGIA LIVE -->
+         <!-- Panel INPUT Post -->
+         <div class="w3-row-padding">
+              <div class="panel panel-body  w3-card-2 w3-round w3-white">
+                  <form action="...">
+                      <textarea class="form-control input-lg no-border" rows="2" placeholder="What are you doing?..."></textarea>
+                  </form>
+                  <div class="panel-footer w3-theme-d3">
+                      <button class="btn btn-success pull-right mt-5">POST</button>
+                      <ul class="nav nav-pills">
+                          <li><a href="#"><i class="fa fa-user"></i></a></li>
+                          <li><a href="#"><i class="fa fa-map-marker"></i></a></li>
+                          <li><a href="#"><i class="fa fa-camera"></i></a></li>
+                          <li><a href="#"><i class="fa fa-smile-o"></i></a></li>
+                      </ul><!-- /.nav nav-pills -->
+                  </div><!-- /.panel-footer -->
+              </div>
+         <!-- end panel INPUT post -->
+         </div>
+
+        <!-- POST -->
+        <BR>
+         <div class="w3-row-padding">
+              <div class="panel w3-card-2 w3-round w3-white" style="padding: 2px;">
+                <div class="panel-heading no-border etichetta-post w3-theme-l4">
+                    <div class="pull-left half">
+                        <div class="media">
+                            <div class="media-object pull-left">
+                                <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt="..." class="img-circle img-post">
+                            </div>
+                            <div class="media-body">
+                                <a href="#" class="media-heading block mb-0 h4 text-white">John Doe</a>
+                                <span class="text-white h6">on 8th June, 2014</span>
+                            </div>
+                        </div>
+                    </div><!-- /.pull-left -->
+                    <div class="pull-right">
+                        <a href="#" class="text-white h4"><i class="fa fa-heart"></i> 15.5K</a>
+                    </div><!-- /.pull-right -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- creo 2 colonne 1 per il post e una per i commenti? -->
+                    <div class="row">
+                        <div class="col-md-6">
+                                <div class="panel-body no-padding">
+                                    <img src="http://lorempixel.com/340/210/nature/4/" alt="..." class="img-responsive full-width">
+                                    <h4>Upload on my album :D</h4>
+                                    <span class="post-corpo">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, iste omnis fugiat porro consequuntur ratione iure error reprehenderit cum est ab similique magnam molestias aperiam voluptatibus quia aliquid! Sed, minima.
+                                    </span>
+                                </div>
+                        </div>
+
+                        <div class="col-md-6">
+                                <div class="panel-body no-padding w3-theme-light">
+                                    <div class="inner-all block">
+                                        view all <a href="#">7 comments</a>
+                                    </div><!-- /.inner-all -->
+                                    <div class="line no-margin"></div><!-- /.line -->
+                                    <div class="media inner-all no-margin">
+                                        <div class="pull-left">
+                                            <img src="http://bootdey.com/img/Content/avatar/avatar6.png" alt="..." class="img-post2">
+                                        </div><!-- /.pull-left -->
+                                        <div class="media-body">
+                                            <a href="#" class="h4">John Doe</a>
+                                            <small class="block text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </small>
+                                            <em class="text-xs text-muted">Posted on <span class="text-danger">Dec 08, 2014</span></em>
+                                        </div><!-- /.media-body -->
+                                    </div><!-- /.media -->
+                                    <div class="line no-margin"></div><!-- /.line -->
+                                    <div class="media inner-all no-margin">
+                                        <div class="pull-left">
+                                            <img src="http://bootdey.com/img/Content/avatar/avatar4.png" alt="..." class="img-post2">
+                                        </div><!-- /.pull-left -->
+                                            <div class="media-body">
+                                                <a href="#" class="h4">John Doe</a>
+                                                <small class="block text-muted">Quaerat, impedit minus non commodi facere doloribus nemo ea voluptate nesciunt deleniti.</small>
+                                                <em class="text-xs text-muted">Posted on <span class="text-danger">Dec 08, 2014</span></em>
+                                            </div><!-- /.media-body -->
+                                        </div><!-- /.media -->
+                                </div>
+                                        <div class="panel-footer w3-theme-l3" >
+                                            <form action="#" class="form-horizontal" style="padding:5px;">
+                                                <div class="form-group has-feedback no-margin">
+                                                    <input class="form-control" type="text" placeholder="Your comment here...">
+                                                    <button type="submit" class="btn btn-theme fa fa-search form-control-feedback"></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                        </div>
+                    </div>
+                <!-- fine due colonne -->
+              </div>
+         </div>
+        <!-- END POST -->
+
+    </div>
+    <!-- End Middle Column -->
+
+   </div>
+  <!-- End The Grid -->
+</div>
+<!-- End Page Container -->
+
+
+<div id="ElencoMsg" style= "display:none">
+ <ul class="list-group">
+    <li>
+
+        <div class="panel panel-default cardpanelmsg thumbnail">
+        <a class="close" href="#"><img src="images/close-x.png"></a>
+            <div class="panel-body">
+                <div class="panel-info">
+                    <p><strong>Tel: 011-345-898</strong></p>
+                    <p>9182 Lorem Ipsum<br />
+                        consectetur adipiscing elit.<br />
+                       Nullam vel lacus felis.</p>
+                </div>
+                <div class="panel-rating">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <p>Rate Yourself!</p>
+                </div>
+                <div class="panel-more1">
+                    <img src="http://lorempixel.com/100/100" />
+                    <br /><span>Caption</span>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="panel panel-default thumbnail">
+        <a class="close" href="#"><img src="images/close-x.png"></a>
+            <div class="panel-body">
+                <div class="panel-info">
+                    <p><strong>Tel: 011-345-898</strong></p>
+                    <p>9182 Lorem Ipsum<br />
+                        consectetur adipiscing elit.<br />
+                       Nullam vel lacus felis.</p>
+                </div>
+                <div class="panel-rating">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <p>Rate Yourself!</p>
+                </div>
+                <div class="panel-more1">
+                    <img src="http://lorempixel.com/100/100" />
+                    <br /><span>Caption</span>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="panel panel-default thumbnail">
+        <a class="close" href="#"><img src="images/close-x.png"></a>
+            <div class="panel-body">
+                <div class="panel-info">
+                    <p><strong>Tel: 011-345-898</strong></p>
+                    <p>9182 Lorem Ipsum<br />
+                        consectetur adipiscing elit.<br />
+                       Nullam vel lacus felis.</p>
+                </div>
+                <div class="panel-rating">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <p>Rate Yourself!</p>
+                </div>
+                <div class="panel-more1">
+                    <img src="http://lorempixel.com/100/100" />
+                    <br /><span>Caption</span>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>
+</body>
+<script>
+ function DeleteMsg(msg){
+  $(msg).remove();
+ }
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else {
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className =
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+<script src="dist/jquery.thumbs.js"></script>
+<script>
+// like
+    $(function () {
+        $('.js-rating-simple').thumbs();
+        $('.js-rating').thumbs({
+            onLike: function (value) {
+                alert ('Thank You For Voting.');
+            },
+            onDislike: function(value) {
+               alert ('Im sorry.');
+            }
+        });
+    })
+</script>
+<script>
+//msg list
+$('.close').click(function(){
+  var $target = $(this).parents('li');
+  $target.hide('slow', function(){ $target.remove(); });
+})
+</script>
+
+</html>

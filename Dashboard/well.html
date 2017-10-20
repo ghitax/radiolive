@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Real Rock Live</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="">
+     <link rel="shortcut icon" href="images/faveiconRR.png" type="image/x-icon">
+ <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel="stylesheet" href="css/w3.css">
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+   <link rel="stylesheet" href="css/tema/w3-theme-blue-grey.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="dist/jquery.thumbs.css">
+   <link rel="stylesheet" type="text/css" href="css/heart.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+<script src="js/ratingmultiple.js"></script>
+
+     <script>
+    $(document).ready(function()
+    {
+
+    $('body').on("click",'.heart',function()
+    {
+
+        var A=$(this).attr("id");
+        var B=A.split("like");
+        var messageID=B[1];
+        var C=parseInt($("#likeCount"+messageID).html());
+        $(this).css("background-position","")
+        var D=$(this).attr("rel");
+
+        if(D === 'like')
+        {
+        $("#likeCount"+messageID).html(C+1);
+        $(this).addClass("heartAnimation").attr("rel","unlike");
+
+        }
+        else
+        {
+        $("#likeCount"+messageID).html(C-1);
+        $(this).removeClass("heartAnimation").attr("rel","like");
+        $(this).css("background-position","left");
+        }
+
+
+    });
+
+
+	});
+	</script>
+
+ <link rel="import" href="well.html">
+</head>
+
+<body>
+  <div class="w3-container w3-content" style="max-width:1400px;" id ="TopPage">
+ <!-- WELL -->
+                <div class="well w3-white">
+                     <div class="row">
+                     <!-- AUTO DEEJAY START -->
+                        <div class="col-md-3 col-sm-6" >
+
+                            <div class="widget widget-stats bg-black">
+                                <div class="onair-block">
+                                    <img src="images/1f065eddf4b958d2e138b934910686b2.jpg" class="img-thumbnail logoslot" alt="Cinque Terre" width="104" >
+                                </div>
+                                <!-- <div class="stats-icon stats-icon-lg"><i class="fa fa-gavel fa-fw"></i></div> -->
+                                <div  class="stats-icon stats-icon-lg ">
+                                <!-- <img class="media-object img-onair" src="images/on-air.png"> -->
+                                <i class="fa fa-podcast"></i>
+                                <img class="media-object img-onair" src="images/equalizer3.gif" style="margin-top:80px;">
+                                </div>
+                                <!--
+                                    <div class="stats-icon stats-icon-lg stats-icon-now-onair">
+                                        <img class="media-object img-circle profile-img img-profile-slot" style="margin-top:0px;margin-right: 1px;"
+                                        src="images/gaetano.jpg">
+                                    </div>
+                                -->
+                                <div class="stats-title">Nessun Speacker</div>
+                                <div class="stats-number">AUTO DEEJAY</div>
+
+                                <div class="stats-progress progress" style="margin-top: 10px;">
+                                    <div class="progress-bar" style="width: 100%;"></div>
+                                </div>
+                                <div class="stats-desc">descrizione brano</div>
+                                        <div class="blocco-rating">
+                                          <div class="js-rating-simple" data-like="4" data-dislike="2"></div>
+                                        </div>
+                                          <div class="valuta">
+                                             <button class="btn btn-danger" style="float: right;">Vai On Air</button>
+                                          </div>
+                            </div>
+
+                        </div>
+
+                     <!-- FINE AUTO DEEJAY START -->
+                        <!-- begin col-3 -->
+                        <div class="col-md-3 col-sm-6" style="display:none;">
+
+                            <div class="widget widget-stats bg-black">
+                                <div class="onair-block">
+                                    <img src="images/logoprogramma.JPG" class="img-thumbnail logoslot" alt="Cinque Terre" width="104" >
+                                </div>
+                                <!-- <div class="stats-icon stats-icon-lg"><i class="fa fa-gavel fa-fw"></i></div> -->
+                                <div  class="stats-icon stats-icon-lg ">
+                                <img class="media-object img-onair" src="images/on-air.png">
+                                <img class="media-object img-onair" src="images/equalizer3.gif">
+                                </div>
+                                    <div class="stats-icon stats-icon-lg stats-icon-now-onair">
+                                        <img class="media-object img-circle profile-img img-profile-slot" style="margin-top:0px;margin-right: 1px;"
+                                        src="images/gaetano.jpg">
+                                    </div>
+                                <div class="stats-title">Indie Vibrations</div>
+                                <div class="stats-number">Gaetano De Gregorio</div>
+                                  <div class="popolarita">
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                                <div style="display: -webkit-inline-box;font-size: x-small;"  title="Segui questo programma">
+                                                 <!-- class="feed" id="feed1" -->
+                                                    <div class="heart " id="like1" rel="like"></div>
+                                                    <div class="likeCount" id="likeCount1">14</div>
+                                                </div>
+                                  </div>
+                                <div class="stats-progress progress" style="margin-top: -10px;">
+                                    <div class="progress-bar" style="width: 70.1%;"></div>
+                                </div>
+                                <div class="stats-desc">descrizione brano</div>
+                                        <div class="blocco-rating">
+                                          <div class="js-rating-simple" data-like="4" data-dislike="2"></div>
+                                          <!-- <div id="stars" class="starrr"></div> -->
+
+                                        </div>
+                                          <div class="valuta">
+                                          <button class="btn btn-success pull-center " data-toggle="modal" data-target="#myModal">Vota Programma</button>
+                                          </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal content-->
+                           <div class="modal fade" id="myModal" role="dialog">
+        <div class="alert alert-success pull-right hide">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            You gave a rating of <span id="count">0</span> star(s)
+        </div>
+                            <div class="modal-dialog">
+
+
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Valutazione</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Valuta il live di Gaetano De Gregorio</p>
+                                  <form>
+                                    <ul class="list-group">
+                                       <li class="list-group-item">
+                                            <div><span>Gradimento Musica</span></div>
+                                            <!--
+                                            <div id="ratingBox" class="additional" ></div>
+                                            <input name="rate" type="hidden"/><input type="hidden" name="rank" class="form-control">
+                                            -->
+
+                                          <div class="row lead">
+                                            <div id="stars1" class="starrr"></div>
+                                             <input type="hidden" name="fstar1">
+                                          </div>
+                                       </li>
+                                       <li class="list-group-item">
+                                            <div><span>Gradimento Rubrica</span></div>
+                                          <div class="row lead">
+                                            <div id="stars2" class="starrr"></div>
+                                            <input type="hidden" name="fstar2">
+                                          </div>
+                                       </li>
+                                       <li class="list-group-item">
+                                            <div><span>Qualit&agrave; Audio Microfono</span></div>
+                                          <div class="row lead">
+                                            <div id="stars3" class="starrr"></div>
+                                            <input type="hidden" name="fstar3">
+                                          </div>
+                                       </li>
+                                       <li class="list-group-item">
+                                            <div><span>Gradimento Novit&agrave; Musicali</span></div>
+                                          <div class="row lead">
+                                            <div id="stars4" class="starrr"></div>
+                                            <input type="hidden" name="fstar4">
+                                          </div>
+                                       </li>
+                                       <li class="list-group-item">
+                                            <div><span>Simpatia Speacker</span></div>
+                                          <div class="row lead">
+                                            <div id="stars5" class="starrr"></div>
+                                            <input type="hidden" name="fstar5">
+                                          </div>
+                                       </li>
+                                    </ul>
+                                </div>
+                                </form>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                        <!-- Modal content-->
+                        <!-- end col-3 -->
+                        <!-- begin col-3 -->
+                        <!--
+                        icons da usare:
+                        glyphicon glyphicon-bookmark 'prenota slot'
+                        glyphicon glyphicon-play-circle     glyphicon glyphicon-expand glyphicon glyphicon-log-in glyphicon glyphicon-flash 'slot libero vai on air'
+                        glyphicon glyphicon-ban-circle          'slot prenotato'
+                        glyphicon glyphicon-exclamation-sign    'exclamation'
+                        glyphicon glyphicon-fire     'fire'
+                        glyphicon glyphicon-magnet   'magnete'
+                        glyphicon glyphicon-comment  'comment'
+                        glyphicon glyphicon-tasks 'task'
+                        glyphicon glyphicon-dashboard 'vai alla regia live'
+                        glyphicon glyphicon-send 'manda messaggio'
+                        glyphicon glyphicon-stats 'stats barre'
+                        glyphicon glyphicon-cloud-upload 'vai on line cloud'
+                        glyphicon glyphicon-cd 'disco'
+                        glyphicon glyphicon-equalizer
+                        glyphicon glyphicon-hourglass 'clessidra'
+                        glyphicon glyphicon-scissors
+                        glyphicon glyphicon-sunglasses 'anonimo'
+                        glyphicon glyphicon-headphones
+                        glyphicon glyphicon-volume-off
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <i class="fa fa-comment" aria-hidden="true"></i>
+                        <i class="fa fa-dashboard" aria-hidden="true"></i>
+                        <i class="fa fa-podcast" aria-hidden="true"></i>
+                        <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                        <i class="fa fa-users" aria-hidden="true"></i> 'tanti user'
+                        fa fa-tags fa-fw
+        fare SLOT AUTODJ e SLOT PARTI SUBITO LIVE
+                        -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="widget widget-stats bg-orange">
+                                <div class="stats-icon stats-icon-lg"><i class="glyphicon glyphicon-bookmark"></i></div>
+                                <div class="stats-title">Nessun programma</div>
+                                <div class="stats-number">SLOT LIBERO!</div>
+                                <div class="stats-progress progress">
+                                    <div class="progress-bar" style="width: 0.5%;"></div>
+                                </div>
+                                <div class="stats-desc">inizio tra 20m.
+                                <button class="btn btn-danger" style="float: right;">Prenota slot</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- end col-3 -->
+                        <!-- begin col-3 slot occupata -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="widget widget-stats bg-black">
+                                <!-- <div class="stats-icon stats-icon-lg"><i class="fa fa-gavel fa-fw"></i></div> -->
+                                    <div class="stats-icon stats-icon-lg ">
+                                        <img class="media-object img-circle profile-img img-profile-slot" src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png">
+                                    </div>
+                                <div class="stats-imgprogramma"><img src="images/logoprogramma.JPG" class="img-thumbnail " style="border: 0;" alt="Cinque Terre" width="50" ></div>
+                                <div class="stats-title stats-title-small">Mosche Danzanti</div>
+                                <div class="stats-number stats-number-small">Tony Manero</div>
+                                <div class="popolarita">
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                  </div>
+                                <div class="stats-progress progress" style="margin-top: 0.19em;">
+                                    <div class="progress-bar" style="width: 0.1%;"></div>
+                                </div>
+                                <div class="sfondo-slot" style="background: url(images/logoprogramma.jpg);background-position: 60%;background-size: cover;">
+                                </div>
+                                <div class="stats-desc scritta-sfondoslot"  >Inizio Ore 16:00</div>
+                            </div>
+                        </div>
+                        <!-- end col-3 -->
+                        <!-- begin col-3 -->
+        <!--
+                        glyphicon glyphicon-sunglasses 'anonimo'
+                        glyphicon glyphicon-headphones
+                        glyphicon glyphicon-volume-off
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <i class="fa fa-comment" aria-hidden="true"></i>
+                        <i class="fa fa-dashboard" aria-hidden="true"></i>
+                        <i class="fa fa-podcast" aria-hidden="true"></i>
+                        <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                        <i class="fa fa-users" aria-hidden="true"></i> 'tanti user'
+                        fa fa-tags fa-fw
+                        fa fa-comments fa-fw
+                        fa fa-clock-o fa-lg fa-fw
+        fare SLOT AUTODJ e SLOT PARTI SUBITO LIVE
+                        -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="widget widget-stats bg-black">
+                                <div class="stats-icon stats-icon-lg"><i class="fa fa-mixcloud  fa-fw"></i></div>
+                                <div class="stats-title">Nessun Speacker</div>
+                                <div class="stats-number">AUTO DJ</div>
+                                <div class="stats-progress progress">
+                                    <div class="progress-bar" style="width: 0.2%;"></div>
+                                </div>
+                                <div class="stats-desc">Brano - Autore
+                                <button class="btn btn-danger" style="float: right;">Vai On Air</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col-3 -->
+            <!-- valutazione utente -->
+                    <div class="justify-content-between">
+
+                        <div class="col-md-9 col-sm-9"><!--  <div class=""> -->
+                            <!-- SEZIONE RATING PROFILO INSIEME-->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                            <div class="row colonnawell-titolo">Come sei visto:</div>
+                                                  <div class="row" >
+                                                   <div class="col-xs-3 col-md-3 text-right rating-margin">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="rating-size">5</span>
+                                                   </div>
+                                                   <div class="col-xs-6 col-md-6 rating-margin">
+                                                            <div class="progress progress-striped progress-rating">
+                                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                                    <span class="sr-only">80%</span>
+                                                                </div>
+                                                            </div>
+                                                   </div>
+                                                   <div class="col-xs-4 col-md-4 text-left rating-margin">
+                                                    <span style ="font-size: x-small;">Musica</span>
+                                                   </div>
+                                                  </div>
+
+                                                  <div class="row">
+                                                   <div class="col-xs-3 col-md-3 text-right rating-margin">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="rating-size">5</span>
+                                                   </div>
+                                                   <div class="col-xs-6 col-md-6 rating-margin">
+                                                        <div class="progress progress-rating">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                                <span class="sr-only">60%</span>
+                                                            </div>
+                                                        </div>
+                                                   </div>
+                                                   <div class="col-xs-4 col-md-4 text-left rating-margin">
+                                                    <span style ="font-size: x-small;">Rubrica</span>
+                                                   </div>
+                                                  </div>
+
+                                                  <div class="row">
+                                                   <div class="col-xs-3 col-md-3 text-right rating-margin">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="rating-size">5</span>
+                                                   </div>
+                                                   <div class="col-xs-6 col-md-6 rating-margin">
+                                                                                <div class="progress progress-rating">
+                                                                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                                                        <span class="sr-only">40%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                   </div>
+                                                   <div class="col-xs-4 col-md-4 text-left rating-margin">
+                                                    <span style ="font-size: x-small;">Followers</span>
+                                                   </div>
+                                                  </div>
+
+                                                  <div class="row">
+                                                   <div class="col-xs-3 col-md-3 text-right rating-margin">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="rating-size">5</span>
+                                                   </div>
+                                                   <div class="col-xs-6 col-md-6 rating-margin">
+                                                                                <div class="progress progress-rating">
+                                                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                                                                        <span class="sr-only">20%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                   </div>
+                                                   <div class="col-xs-4 col-md-4 text-left rating-margin">
+                                                    <span style ="font-size: x-small;">Social Like</span>
+                                                   </div>
+                                                  </div>
+
+                                                  <div class="row">
+                                                   <div class="col-xs-3 col-md-3 text-right rating-margin">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="rating-size">5</span>
+                                                   </div>
+                                                   <div class="col-xs-6 col-md-6 rating-margin">
+                                                                                <div class="progress progress-rating">
+                                                                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+                                                                                        aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+                                                                                        <span class="sr-only">15%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                   </div>
+                                                   <div class="col-xs-4 col-md-4 text-left rating-margin">
+                                                    <span style ="font-size: x-small;">Qualit&agrave;</span>
+                                                   </div>
+                                                  </div>
+
+                                            </div>
+                                                          <!-- SECONDA COLONNA -->
+                                                          <div class="col-sm-4">
+                                                                <div class="row colonnawell-titolo">I tuoi Broadcast:</div>
+                                                             <div class="card-programma">
+                                                             </div>
+                                                             <button class="btn btn-success" style="float: right;">Crea Broadcast</button>
+                                                          </div>
+                                                          <!-- TERZA COLONNA -->
+                                                          <div class="col-sm-4">
+                                                          terza colonna
+                                                          </div>
+                                    </div>
+                                 <!-- END SEZIONE RATING PROFILO INSIEME-->
+                        </div>
+                    </div>
+
+<!-- end valutazione utente -->
+                    </div>
+                   </div>
+
+            <!-- END WELL -->
+    </div>
+
+</body>
+<script>
+ function DeleteMsg(msg){
+  $(msg).remove();
+ }
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else {
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className =
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+<script src="dist/jquery.thumbs.js"></script>
+<script>
+// like
+    $(function () {
+        $('.js-rating-simple').thumbs();
+        $('.js-rating').thumbs({
+            onLike: function (value) {
+                alert ('Thank You For Voting.');
+            },
+            onDislike: function(value) {
+               alert ('Im sorry.');
+            }
+        });
+    })
+</script>
+<script>
+//msg list
+$('.close').click(function(){
+  var $target = $(this).parents('li');
+  $target.hide('slow', function(){ $target.remove(); });
+})
+</script>
+
+
+</html>
